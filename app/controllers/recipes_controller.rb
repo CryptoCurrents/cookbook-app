@@ -1,6 +1,5 @@
 class RecipesController < ApplicationController
-  def one_recipe_action
-    @recipe = Recipe.last
-    render 'one_recipe_page.html.erb'
+  def index
+    @recipes = Recipe.all
   end
 end
