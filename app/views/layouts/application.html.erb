@@ -11,11 +11,23 @@
   <body>
     <h1><a href="/">Cookbook</a></h1>
     <p><a href="/recipes/new">New Recipe</a></p>
+    
+    <div class="container">
+      <% flash.each do |name, message| %>
+        <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= message %>
+        </div>
+      <% end %>
 
-    <% flash.each do |name, message| %>
-      <p><%= message %></p>
-    <% end %>
-
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>
+
+
+
+
+
+
+
