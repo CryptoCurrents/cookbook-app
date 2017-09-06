@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
                         directions: params[:directions]
                         )
     recipe.save
+    redirect_to "/recipes/#{recipe.id}"
   end
 
   def show
@@ -27,7 +28,6 @@ class RecipesController < ApplicationController
 
   def update
     recipe = Recipe.find(params[:id])
-
     recipe.assign_attributes(
                             title: params[:title],
                             chef: params[:chef],
@@ -36,11 +36,13 @@ class RecipesController < ApplicationController
                             )
 
     recipe.save
+    redirect_to "/recipes/#{ recipe.id }"
   end
 
   def destroy
     recipe = Recipe.find(params[:id])
     recipe.destroy
+    redirect_to "/recipes"
   end
 end
 
